@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package com.sopovs.moradanen.vaadin.guice;
+package com.sopovs.moradanen.vaadin.ui;
 
 import javax.inject.Inject;
 
@@ -27,23 +27,26 @@ public class MainWindow extends Window {
 
 	public MainWindow() {
 		super("Vaadin Guice application");
+		setSizeFull();
 	}
 
 	public void init() {
 		assert dao != null;
 		HorizontalSplitPanel mainSplit = new HorizontalSplitPanel();
-		// TODO
-		// mainSplit.setFirstComponent(sectorTree);
-		mainSplit.setFirstComponent(createDummyTable());
+		mainSplit.setSizeFull();
+
+		mainSplit.setFirstComponent(sectorTree);
 		VerticalSplitPanel rightSplit = new VerticalSplitPanel();
+		mainSplit.setSecondComponent(rightSplit);
+		rightSplit.setSizeFull();
 		rightSplit.setFirstComponent(createDummyTable());
 		rightSplit.setSecondComponent(createDummyTable());
-		mainSplit.setSecondComponent(rightSplit);
-		addComponent(mainSplit);
+		setContent(mainSplit);
 	}
 
 	private static Table createDummyTable() {
 		Table table = new Table();
+		table.setSizeFull();
 		table.addContainerProperty("Thing", String.class, null);
 		for (int i = 0; i < 50; i++) {
 			Item item = table.addItem("Number " + i);

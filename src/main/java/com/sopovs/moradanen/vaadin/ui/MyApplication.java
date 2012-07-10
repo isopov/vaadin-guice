@@ -1,4 +1,4 @@
-package com.sopovs.moradanen.vaadin.guice;
+package com.sopovs.moradanen.vaadin.ui;
 
 import com.google.inject.Inject;
 import com.google.inject.servlet.SessionScoped;

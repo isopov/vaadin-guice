@@ -11,8 +11,8 @@ import com.vaadin.terminal.gwt.server.AbstractApplicationServlet;
 
 @Singleton
 public class GuiceApplicationServlet extends AbstractApplicationServlet {
-
-	protected final Provider<Application> applicationProvider;
+	private static final long serialVersionUID = 1L;
+	private final Provider<Application> applicationProvider;
 
 	@Inject
 	public GuiceApplicationServlet(Provider<Application> applicationProvider) {
@@ -20,7 +20,7 @@ public class GuiceApplicationServlet extends AbstractApplicationServlet {
 	}
 
 	@Override
-	protected Class getApplicationClass() throws ClassNotFoundException {
+	protected Class<Application> getApplicationClass() throws ClassNotFoundException {
 		return Application.class;
 	}
 
